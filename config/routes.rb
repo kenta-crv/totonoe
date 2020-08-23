@@ -1,15 +1,27 @@
 Rails.application.routes.draw do
-    devise_for :admins
+   #管理者アカウント
+   devise_for :admins, controllers: {
+     registrations: 'admins/registrations',
+     sessions: 'admins/sessions'
+   }
+   resources :admins, only: [:show]
+   #使用者アカウント
+   devise_for :users, controllers: {
+     registrations: 'users/registrations',
+     sessions: 'users/sessions'
+   }
+   resources :users, only: [:show]
 
-    root to: 'stores#index'
-    resources :stores do
-      collection do
-        post :import
-      end
-    end
+   root to: 'eateries#index'
+   resources :eateries do
+     collection do
+       post :import
+     end
+   end
 
-    get 'contact' => 'contact#index'
-    post 'confirm' =>'contact#confirm'
-    post 'thanks' => 'contact#thanks'
+   resources :reviews 
 
+   get 'contact' => 'contact#index'
+   post 'confirm' =>'contact#confirm'
+   post 'thanks' => 'contact#thanks'
 end

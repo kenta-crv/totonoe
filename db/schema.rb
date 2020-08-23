@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_120607) do
+ActiveRecord::Schema.define(version: 2020_08_19_073605) do
 
   create_table "admins", force: :cascade do |t|
+    t.string "user_name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -22,6 +23,90 @@ ActiveRecord::Schema.define(version: 2020_05_02_120607) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "eateries", force: :cascade do |t|
+    t.string "store"
+    t.string "store_kana"
+    t.string "url"
+    t.string "tel"
+    t.string "address"
+    t.string "genre"
+    t.string "payment"
+    t.string "price_lunch"
+    t.string "price_dinner"
+    t.string "hour"
+    t.string "holiday"
+    t.string "difficulty"
+    t.string "bookking"
+    t.string "sit"
+    t.date "open"
+    t.string "chef"
+    t.string "career"
+    t.string "remarks"
+    t.string "takeout"
+    t.string "image_1"
+    t.string "image_2"
+    t.string "image_3"
+    t.string "image_4"
+    t.string "image_5"
+    t.string "image_6"
+    t.string "image_7"
+    t.string "image_8"
+    t.string "image_9"
+    t.string "image_10"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eaterists", force: :cascade do |t|
+    t.integer "eatery_id"
+    t.string "delicious_score"
+    t.string "mood_score"
+    t.string "cont_performance_score"
+    t.string "service_score"
+    t.string "imagination_score"
+    t.string "original_score"
+    t.string "revisit"
+    t.string "average_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eatery_id"], name: "index_eaterists_on_eatery_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "eatery_id"
+    t.integer "user_id"
+    t.string "delicious_score"
+    t.string "mood_score"
+    t.string "cost_performance_score"
+    t.string "service_score"
+    t.string "imagination_score"
+    t.string "original1"
+    t.string "original1_score"
+    t.string "original2"
+    t.string "original2_score"
+    t.string "revisit"
+    t.string "average_price"
+    t.string "title"
+    t.string "keyword"
+    t.string "description"
+    t.text "body"
+    t.string "image_1"
+    t.string "image_2"
+    t.string "image_3"
+    t.string "image_4"
+    t.string "image_5"
+    t.string "image_6"
+    t.string "image_7"
+    t.string "image_8"
+    t.string "image_9"
+    t.string "image_10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eatery_id"], name: "index_reviews_on_eatery_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -56,6 +141,19 @@ ActiveRecord::Schema.define(version: 2020_05_02_120607) do
     t.string "image_10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -2,23 +2,28 @@ doctype html
 html
   head
     = render template: 'layouts/_header.html.slim'
-
-  .container-field
-   header
-    .row
-     .col-xs-2
+  header
+   .row
+     .col-xs-12
        = link_to "/" do
-        = image_tag 'rogo.png' , class: "menu"
-     .col-xs-2
-      nav.globalMenuSp
+        = image_tag 'rogo.png',  class:"menu"
+       nav.globalMenuSp
 
-      .navToggle
-          span
-          span
-          span
-          span menu
-   br
-   body
+       /.navToggle
+        /  span
+        /  span
+        /  span
+        /  span menu
+   .row
+     .col-xs-12.border-line
+       .search2.center.height
+        = search_form_for @q do |f|
+         = f.search_field :store_cont, type: "text", placeholder: "店名", class:"window"
+         = f.search_field :address_cont, type: "text", placeholder: "エリア", class:"window"
+         = f.search_field :genre_cont, type: "text", placeholder: "ジャンル", class:"window"
+         = f.submit "検索", class:"submit-button"
+  br
+  body
+     = yield
      p.notice = notice
      p.alert = alert
-     = yield

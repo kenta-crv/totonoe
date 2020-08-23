@@ -10,9 +10,27 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require froala_editor.min.css
+*= require froala_style.min.css
+*= require font-awesome
+*= require plugins/char_counter.min.css
+*= require plugins/code_view.min.css
+*= require plugins/colors.min.css
+*= require plugins/emoticons.min.css
+*= require plugins/file.min.css
+*= require plugins/fullscreen.min.css
+*= require plugins/image_manager.min.css
+*= require plugins/image.min.css
+*= require plugins/line_breaker.min.css
+*= require plugins/quick_insert.min.css
+*= require plugins/table.min.css
+*= require plugins/video.min.css
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
  $main_color: orange;
  $sub_color: #fff;
@@ -31,22 +49,30 @@
    box-sizing: border-box;
  }
 
+.back-image-app {
+  background-image: url('base.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  padding-bottom:50px;
+  margin-top:-22px;
+}
+
 .main-wrapper {/*親div*/
   position: relative;/*相対配置*/
   }
 
 .main-wrapper .search2 {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   width:80%;
   line-height:5vw;
-  margin-top:30px;
+  margin:30px;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
+  padding:10px;
   /*文字の装飾は省略*/
   }
 
@@ -66,45 +92,82 @@
 
 
 .store_index {
-  line-height:3.3vw;
+  padding-top:10px;
+  padding-left:20px;
+  a {
+    text-decoration: none;
+    color:black;
+  }
+  .store {
+    padding-left:25px;
+    font-weight:bold;
+    font-size:35px;
+  }
+  .genre {margin-left:25px;}
+  .index-text {
+    padding-left:25px;
+    font-size:28px;
+    color:#555;
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+}
+
+.store_review {
+  margin:10px 25px 5px;
   a {
     text-decoration: none;
     color:black;
   }
   .store {
     font-weight:bold;
-    font-size:24px;
+    font-size:2rem;
   }
-  .genre {margin:5px;}
+  .genre {margin-left:25px;}
+  .index-text {
+    padding-left:25px;
+    font-size:28px;
+    color:#555;
+    margin-top:30px;
+    margin-bottom:30px;
+  }
 }
+
+
+/*検索窓*/
+.window {width:25%;
+         padding:5px;
+         marigin:3px;}
+
+.index-wrapper{
+margin-top:50px;
+}
+
 
                                           /*ヘッダーの始まり*/
 
 
  /*ヘッダーのベース設定*/
  header {
-   width: 100%;
-   font-size:15px;
-   text-align:center;
    height:75px;
-   margin-bottom: -62px;
-   background-color: #fff;
-   padding-left:30px;
-   padding-right:30px;
-   a {
-     padding: 0 50px;
-     height:45px;
-     color: white;
-     transition-duration:2.0s;
-     }
+   .menu {
+     padding-left:10px;
+     padding-top:10px;
+     width:100%;
+     max-width: 200px;
+     height: auto;
+   }
+   .border-line {
+     height:60px;
+     background-color:orange;
+   }
+   .height {
+     margin: auto 0;
+     padding-top:5px;
+     padding-left:5px;
+   }
  }
 
- .menu {
-   padding-top: 10px;
-   max-height: 85px;
-   height: auto;
-   margin-left: -50px;
- }
 
 
  /*ディテール*/
@@ -256,6 +319,7 @@
  	overflow: hidden;
  	width: 90%;
  	margin:1.7rem auto;
+  margin:7px;
  	text-align: center;
  }
  .cp_ipselect select {
@@ -298,6 +362,27 @@
  	padding: 8px 38px 8px 8px;
  	color: #ffffff;
  }
+
+.submit-button {
+ outline : none;width: 3.5em;
+ border-radius : 3%;          /* 角丸       */
+ font-size     : 14pt;        /* 文字サイズ */
+ text-align    : center;      /* 文字位置   */
+ cursor        : pointer;     /* カーソル   */
+ padding       : 5px 5px;   /* 余白       */
+ background    : #ff7f00;     /* 背景色     */
+ color         : #ffffff;     /* 文字色     */
+ line-height   : 1em;         /* 1行の高さ  */
+ transition    : .3s;         /* なめらか変化 */
+ box-shadow    : 4px 4px 3px #666666;  /* 影の設定 */
+ border        : 2px solid #ff7f00;    /* 枠の指定 */
+ margin        : 7px ;
+}
+.submit-button:hover {
+ box-shadow    : none;        /* カーソル時の影消去 */
+ color         : #ff7f00;     /* 背景色     */
+ background    : #ffffff;     /* 文字色     */
+}
 
 
                                              /*テーブルに関する情報*/
@@ -357,8 +442,8 @@ table.company {
 
 
  /*posts index*/
-     .post-index-image {
- 	    width:200px;
+    .post-index-image {
+ 	   width:200px;
          }
  		.post-space {
  			margin-bottom:10px;
