@@ -5,21 +5,15 @@ Rails.application.routes.draw do
      sessions: 'admins/sessions'
    }
    resources :admins, only: [:show]
-   #使用者アカウント
-   devise_for :users, controllers: {
-     registrations: 'users/registrations',
-     sessions: 'users/sessions'
-   }
-   resources :users, only: [:show]
 
-   root to: 'eateries#index'
-   resources :eateries do
+   root to: 'posts#index'
+   resources :lists do
      collection do
        post :import
      end
    end
 
-   resources :reviews 
+   resources :posts
 
    get 'contact' => 'contact#index'
    post 'confirm' =>'contact#confirm'

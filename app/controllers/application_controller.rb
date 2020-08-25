@@ -1,16 +1,14 @@
 class ApplicationController < ActionController::Base
 
   def before_search
-    @q = Eatery.ransack(params[:q])
-    @eateries = @q.result
+    @q = List.ransack(params[:q])
+    @lists = @q.result
   end
 
   def after_sign_in_path_for(resource)
     case resource
     when Admin
       "/admin/#{current_admin.id}" #決済画面へ
-    when User
-      "/users/#{current_user.id}" #決済画面へ
     else
       super
     end
@@ -20,8 +18,6 @@ class ApplicationController < ActionController::Base
     case resource
     when Admin, :admin, :admins
       new_admin_session_path
-    when User, :user, :users
-      new_user_session_path
     else
       super
     end
@@ -30,8 +26,6 @@ class ApplicationController < ActionController::Base
   def layout_by_resource
     if devise_controller && resource_name == :admin
       "admins"
-    elsif devise_controller && resource_name == :user
-      "users"
     else
       "application"
     end

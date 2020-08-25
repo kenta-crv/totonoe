@@ -1,4 +1,4 @@
-= form_for @eatery do |f|
+= form_for @list do |f|
   table.company
    colgroup
      col width="10%"
@@ -10,115 +10,115 @@
           strong.label 必須
         td.arrow_box
           | 店舗名
-        td = text_field :eatery, :store
+        td = text_field :list, :store
       tr
         td
           strong.label 必須
         td.arrow_box
           | テンポメイ
-        td = text_field :eatery, :store_kana
+        td = text_field :list, :store_kana
       tr
         td
           strong.label 必須
         td.arrow_box
           | URL
-        td = url_field :eatery, :url
+        td = url_field :list, :url
       tr
         td
           strong.label 必須
         td.arrow_box
           | 電話番号
-        td = phone_field :eatery, :tel
+        td = phone_field :list, :tel
       tr
         td
           strong.label 必須
         td.arrow_box
           | 住所
-        td = text_field :eatery, :address
+        td = text_field :list, :address
       tr
         td
           strong.label 必須
         td.arrow_box
           | ジャンル
-        td = text_field :eatery, :genre
+        td = text_field :list, :genre
       tr
         td
           strong.label 必須
         td.arrow_box
           | 支払方法
-        td = text_field :eatery, :payment
+        td = text_field :list, :payment
       tr
         td
           strong.label 必須
         td.arrow_box
           | ランチ単価
-        td = text_field :eatery, :price_lunch
+        td = text_field :list, :price_lunch
       tr
         td
           strong.label 必須
         td.arrow_box
           | ディナー単価
-        td = text_field :eatery, :price_dinner
+        td = text_field :list, :price_dinner
       tr
         td
           strong.label 必須
         td.arrow_box
           | 営業時間
-        td = text_field :eatery, :hour
+        td = text_field :list, :hour
       tr
         td
           strong.label 必須
         td.arrow_box
           | 定休日
-        td = text_field :eatery, :holiday
+        td = text_field :list, :holiday
       tr
         td
           strong.label 必須
         td.arrow_box
           | 難易度
-        td = text_field :eatery, :difficulty
+        td = text_field :list, :difficulty
       tr
         td
           strong.label 必須
         td.arrow_box
           | 予約方法
-        td = text_field :eatery, :bookking
+        td = text_field :list, :bookking
       tr
         td
           strong.label 必須
         td.arrow_box
           | 席数
-        td = number_field :eatery, :sit
+        td = number_field :list, :sit
       tr
         td
           strong.label 必須
         td.arrow_box
           | オープン日
-        td = date_field  :eatery, :open
+        td = date_field  :list, :open
       tr
         td
           strong.label 必須
         td.arrow_box
           | シェフ
-        td = text_field :eatery, :chef
+        td = text_field :list, :chef
       tr
         td
           strong.label 必須
         td.arrow_box
           | キャリア
-        td = text_area :eatery, :career
+        td = text_area :list, :career
       tr
         td
           strong.label 必須
         td.arrow_box
           | 備考
-        td = number_field :eatery, :remarks
+        td = number_field :list, :remarks
       tr
         td
           strong.label 必須
         td.arrow_box
           | テイクアウト
-        td = number_field :eatery, :takeout
+        td = number_field :list, :takeout
       tr
         td
           strong.label 必須
